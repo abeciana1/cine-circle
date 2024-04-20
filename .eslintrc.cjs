@@ -10,5 +10,9 @@ module.exports = {
       'warn',
       { allowConstantExport: true },
     ],
+    'array-bracket-newline': [
+      'error',
+      { multiline: true }
+    ]
   },
 }
