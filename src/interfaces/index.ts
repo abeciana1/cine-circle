@@ -1,0 +1,1 @@
+export type { HeadingProps } from '@/src/interfaces/components/styled'

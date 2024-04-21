@@ -1,8 +1,10 @@
+import { H1 } from '@/src/components'
+import { TextTailwindColor } from '@/src/enums'
 
 const Home = () => {
 
     return (
-        <h1>Hello</h1>
+        <H1 color={TextTailwindColor.CrimsonRed} text='Explore the World of Movies with CineCircle!' />
     )
 }
 

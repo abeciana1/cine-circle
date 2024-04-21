@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [],
+  content: ['./src/**/*'],
   theme: {
     extend: {
       colors: {
@@ -13,7 +13,7 @@ export default {
         offWhite: "#F8F9FA",
         indigoDye: "#2B4162",
         midnightGreen: "#0F4C5C"
-      }
+      },
     },
   },
   plugins: [],
