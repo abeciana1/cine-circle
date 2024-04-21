@@ -1,0 +1,44 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
+      with:
+        node-version: '16'
+    - name: Install Dependencies
+      run: npm install
+
+    # Vitest
+    - name: Run Vitest
+      run: npx vitest run --coverage
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v4.0.1
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+        slug: abeciana1/cine-circle
+
+    # Storybook
+    - name: Build Storybook
+      run: npm run build-storybook
+    - name: Deploy Storybook to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.ACCESS_TOKEN }}
+        publish_dir: ./storybook-static
+
+    # Cypress
+    - name: Run Cypress E2E Tests
+      uses: cypress-io/github-action@v3
+      with:
+        start: npm start
+        wait-on: 'http://localhost:3000'
+        wait-on-timeout: 300
