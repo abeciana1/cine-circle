@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react-swc'
 import path from 'path';
+import { codecovVitePlugin } from "@codecov/vite-plugin";
 
 export default defineConfig({
   resolve: {
@@ -8,5 +9,12 @@ export default defineConfig({
       '@': path.resolve(__dirname, './'),
     }
   },
-  plugins: [react()],
+  plugins: [
+    react(),
+    codecovVitePlugin({
+      enableBundleAnalysis: process.env.CODECOV_TOKEN !== undefined,
+      bundleName: "CineCircle",
+      uploadToken: process.env.CODECOV_TOKEN,
+    }),
+  ],
 })
