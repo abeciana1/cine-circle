@@ -1,1 +1,5 @@
-export type { HeadingProps } from '@/src/interfaces/components/styled'
+export type {
+    HeadingProps,
+    CTALinkProps,
+    PageSectionProps
+} from '@/src/interfaces/components/styled'
