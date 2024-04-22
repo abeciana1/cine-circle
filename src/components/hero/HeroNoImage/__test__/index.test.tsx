@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom';
+import { MemoryRouter } from 'react-router-dom'
 import HeroNoImage from '@/src/components/hero/HeroNoImage'
 import { TextTailwindColor } from '@/src/enums'
-import { MemoryRouter } from 'react-router-dom'
 
 describe('HeroNoImage', () => {
     beforeEach(() => {
