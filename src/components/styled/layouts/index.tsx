@@ -4,7 +4,7 @@ export const PageSection = ({
     children
 }: PageSectionProps) => {
     return(
-        <section className="py-16 px-24">
+        <section className="py-8 md:py-16 md:px-24">
             { children }
         </section>
     )
