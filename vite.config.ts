@@ -19,15 +19,8 @@ export default defineConfig({
   ],
   test: {
     include: ['**/__test__/**/*.test.{js,jsx,ts,tsx}'],
-    exclude: [
-      '**/node_modules/**',
-      '**/dist/**',
-      '**/*.stories.ts',
-      '**/*.config.{js,ts}',
-      '**/.{idea,git,cache,output,temp}/**'
-    ],
     globals: true,
-    environment: 'jsdom',
+    environment: 'happy-dom',
     setupFiles: './src/tests/setup.ts',
   }
 })
